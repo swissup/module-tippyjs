@@ -29,6 +29,10 @@ define([
         if (el.getAttribute('title') !== null && oldValue !== el.title) {
             el._tippy.setContent(getTitleAndRemoveAttribute(el));
         }
+
+        if (!$(el).is(':visible')) {
+            el._tippy.hide();
+        }
     });
 
     /**
@@ -37,7 +41,7 @@ define([
     observeTitleAttribute = function (el) {
         observer.observe(el, {
             attributes: true,
-            attributeFilter: ['title'],
+            attributeFilter: ['title', 'style'],
             attributeOldValue: true
         });
     };
