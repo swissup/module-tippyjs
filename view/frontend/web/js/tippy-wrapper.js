@@ -55,7 +55,7 @@ define([
     return function (selector, options) {
         var instance = tippy(selector, $.extend({}, defaults, options || {}));
 
-        if (options.dynamicTitle) {
+        if (options?.dynamicTitle) {
             if ($(selector).length) {
                 $(selector).each(function () {
                     observeTitleAttribute(this);
